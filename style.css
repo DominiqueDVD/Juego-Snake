@@ -3,7 +3,7 @@
 }
 
 .tablero, .infoTablero{
-    max-width: 100%;
+    max-width: 50%;
 }
 
 .tablero{
@@ -33,7 +33,7 @@
 .infoTablero{
     display: flex;
     justify-content: space-between;
-    margin:5%;
+    margin-top:5%;
 }
 
 .scoreTablero{
