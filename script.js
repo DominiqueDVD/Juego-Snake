@@ -13,10 +13,10 @@ const tipoRecuadro = {
     cuadroComida:2,
 };
 const direcciones = {
-    arriba: -10,
-    abajo: 10,
-    derecha: 1, 
-    izquierda: -1,
+    ArrowUp: -10,
+    ArrowDown: 10,
+    ArrowRight: 1, 
+    ArrowLeft: -1,
 };
 
 //variables
@@ -54,8 +54,8 @@ const drawCuadrado = (cuadrado, type) => {
      const [row, column] = newSquare.split('');
 
      if (newSquare < 0 || newSquare > tableroSize * tableroSize
-        || (direccion ==='derecha' && column == 0) ||
-        (direccion=== 'izquierda' && column == 9 ||
+        || (direccion ==='ArrowRight' && column == 0) ||
+        (direccion=== 'ArrowLeft' && column == 9 ||
         tableroRecuadros[row][column]===tipoRecuadro.cuadroSnake) ){
         gameOvers();
     }else{
@@ -88,17 +88,17 @@ const setDirection = newDirection => {
 
 const directionEvent = key => {
     switch (key.code){
-        case 'arriba':
-            direccion != 'abajo' && setDirection(key.code)
+        case 'ArrowUp':
+            direccion != 'ArrowDown' && setDirection(key.code)
             break;
-        case 'abajo':
-            direccion != 'arriba' && setDirection(key.code)
+        case 'ArrowDown':
+            direccion != 'ArrowUp' && setDirection(key.code)
             break;
-        case 'izquierda':
-            direccion != 'derecha' && setDirection(key.code)
+        case 'ArrowLeft':
+            direccion != 'ArrowRight' && setDirection(key.code)
             break;
-        case 'derecha':
-            direccion != 'izquierda' && setDirection(key.code)
+        case 'ArrowRight':
+            direccion != 'ArrowLeft' && setDirection(key.code)
             break;
     }
 }
@@ -128,7 +128,7 @@ const crearTablero = () => {
 const setGame = () => {
 snake = ['00', '01', '02', '03'];
    puntaje = snake.length;
-   direccion = 'derecha';
+   direccion = 'ArrowRight';
    tableroRecuadros = Array.from(Array(tableroSize), 
    () => new Array(tableroSize).fill(tipoRecuadro.cuadroVacio));
     console.log(tableroRecuadros);
